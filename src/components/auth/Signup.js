@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { postData } from '../../service/AxiosService';
+import useCheckAuth from '../../hooks/useCheckAuth';
 
 const Signup = () => {
+    const {isAuthenticated} = useCheckAuth()
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -37,6 +39,9 @@ const Signup = () => {
           navigate('/login')
         }
     };
+    if(isAuthenticated){
+        navigate(-1)
+    }
     const btnDisable = name && email && password 
     return (
         <div className="bg-gray-100 min-h-screen flex items-center justify-center">

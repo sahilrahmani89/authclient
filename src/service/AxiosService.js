@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
 
 // Function to set the access token
 export const setAccessToken = (token) => {
-  Cookies.set('accessToken', token, { expires: 7 });
+  Cookies.set('accessToken', token, { expires: 1 });
   axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 };
 
