@@ -1,14 +1,14 @@
 import React,{useState} from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
-import useCheckAuth from '../../hooks/useCheckAuth'
+// import useCheckAuth from '../../hooks/useCheckAuth'
 
 const Login = () => {
     const navigate = useNavigate()
-    const {login} = useAuth()
-    const {isAuthenticated} = useCheckAuth()
-    const check = useSelector((state)=>state.auth.value)
+    const {login,isAuthenticated} = useAuth()
+  
+    // const check = useSelector((state)=>state.auth.value)
 
     const [formData,setFormData] = useState({
       email:'',
@@ -26,7 +26,7 @@ const Login = () => {
     }
     //
     if(isAuthenticated){
-      navigate(-1)
+      navigate('/profile')
     }
     //
   return (
